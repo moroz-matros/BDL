@@ -5,23 +5,6 @@ package l3.var1_1;
 */
 
 public class Main {
-    // This method first checks if the input array has fewer than three elements,
-    // in which case the vectors are trivially coplanar.
-    // Otherwise, it selects the first three vectors in the array and
-    // calculates the cross product of the first two vectors, which is
-    // a vector that is orthogonal to both of them and therefore normal to the plane
-    // that they define.
-
-    // The method then normalizes this cross product to obtain a unit normal vector,
-    // which is used to check if the remaining vectors in the array lie in the same
-    // plane
-    // as the first three vectors. Specifically, the method calculates the cross
-    // product
-    // of each remaining vector with the first vector in the array,
-    // and takes the dot product of the result with the unit normal vector.
-    // If this dot product is not zero for any of the remaining vectors,
-    // then the vectors are not coplanar and the method returns false. Otherwise,
-    // the method returns true.
     public static boolean areCoplanar(Vector[] vectors) {
         if (vectors.length < 3) {
             return true;
