@@ -19,10 +19,8 @@ public class Vector {
         double mag2 = v.magnitude();
         double magCross = crossProduct.magnitude();
         if (magCross == 0) {
-            // vectors are parallel, return the longer one
             return mag1 >= mag2;
         } else {
-            // vectors are not parallel, return the one with the largest cross product
             double angle = Math.asin(magCross / (mag1 * mag2));
             return mag1 * Math.sin(angle) >= mag2 * Math.sin(angle);
         }
@@ -50,12 +48,40 @@ public class Vector {
         return dotProduct(other) == 0;
     }
 
-    public boolean equals(Vector other) {
-        return x == other.x && y == other.y && z == other.z;
-    }
-
     public boolean intersects(Vector other) {
         return !((crossProduct(other).equals(new Vector(0, 0, 0)) &&
                 !this.equals(other)));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(x);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(y);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(z);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Vector other = (Vector) obj;
+        if (Double.doubleToLongBits(x) != Double.doubleToLongBits(other.x))
+            return false;
+        if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
+            return false;
+        if (Double.doubleToLongBits(z) != Double.doubleToLongBits(other.z))
+            return false;
+        return true;
     }
 }

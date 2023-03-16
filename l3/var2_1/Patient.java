@@ -89,14 +89,8 @@ public class Patient {
     @Override
     public String toString() {
         return "Patient{" +
-                "id=" + id +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", medicalCardId=" + medicalCardId +
-                ", diagnosis='" + diagnosis + '\'' +
-                '}';
+                "id=" + id + ", surname=" + surname  + ", name=" + name + ", patronymic="
+                + patronymic + ", address=" + address + ", phoneNumber=" + phoneNumber +
+                ", medicalCardId=" + medicalCardId + ", diagnosis=" + diagnosis + '}';
     }
 }

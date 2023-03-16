@@ -57,10 +57,10 @@ public class Main {
             }
         }
 
-        System.out.printf("First min %d in\n", firstMin[0]);
+        System.out.printf("First norm %d in\n", firstMin[0]);
         arr[firstMin[1]].printMatrix();
 
-        System.out.printf("Second min %d in\n", secondMin[0]);
+        System.out.printf("Second norm %d in\n", secondMin[0]);
         arr[secondMin[1]].printMatrix();
     }
 }

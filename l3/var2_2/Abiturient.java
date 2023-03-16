@@ -99,13 +99,8 @@ public class Abiturient {
     @Override
     public String toString() {
         return "Abiturient{" +
-                "id=" + id +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronimyc='" + patronimyc + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", scores=" + Arrays.toString(scores) +
-                '}';
+                "id=" + id + ", surname=" + surname + ", name=" + name + ", patronimyc="
+                + patronimyc + ", address=" + address + ", phoneNumber=" + phoneNumber +
+                ", scores=" + Arrays.toString(scores) + '}';
     }
 }

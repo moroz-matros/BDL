@@ -64,8 +64,6 @@ public class Main {
             System.out.println(sortedAbiturients[i]);
         }
 
-        // list of abiturients, that have avegage score greater than given avgHalfPass =
-        // 2.4
         float avgHalfPass = 2.4f;
         System.out.println("List of abiturients with average score > " + avgHalfPass + ":");
         for (Abiturient abiturient : abiturients) {
