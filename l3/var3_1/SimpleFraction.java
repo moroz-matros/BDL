@@ -1,7 +1,5 @@
 package l3.var3_1;
 
-import java.util.Objects;
-
 public class SimpleFraction {
     private int numerator;
     private int denominator;
