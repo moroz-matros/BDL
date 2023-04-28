@@ -3,7 +3,6 @@ package l5.var3;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /*  В следующих заданиях требуется ввести последовательность строк из текстового потока
     и выполнить указанные действия. При этом могут рассматриваться два варианта:

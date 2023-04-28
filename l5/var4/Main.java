@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*  При выполнении следующих заданий для вывода результатов создавать
     новую директорию и файл средствами класса File
