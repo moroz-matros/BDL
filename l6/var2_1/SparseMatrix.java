@@ -6,13 +6,12 @@ class SparseMatrix {
     private int m, n;
     public ArrayList<Node> nodeHeads;
 
-    // Класс для хранения ненулевых элементов
     class Node {
         int row;
         int col;
         int value;
 
-        Node next; // следующая нода
+        Node next;
 
         public Node(int row, int col, int value) {
             this.row = row;
