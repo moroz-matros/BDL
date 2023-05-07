@@ -1,0 +1,15 @@
+SMITH 10 8 4 9 10
+Johnson 5 6 9 7 4 8
+Anderson 7 4 4 6 6 5
+Miller 8 9 8 6 1 4
+Taylor 4 6 2 7 4 9
+Brown 4 9 6 5 8 3
+Williams 7 4 7 5 3 6
+DAVIS 10 9 10 10 7.8
+Jones 5 5 1 8 9 3
+Hall 7 9 5 5 1 4
+Moore 3 3 7 5 8 6
+Taylor 5 2 2 4 4 8
+Moore 9 6 5 4 9 4
+White 8 4 7 6 3 1.1
+CLARK 8 8 9 8 6

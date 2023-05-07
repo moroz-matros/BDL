@@ -80,11 +80,12 @@ public class Main {
         }
         System.out.println("vowels");
         for (String word : startsWithVowel(strs)) {
-            System.out.println(word);
+            System.out.print(word + " ");
         }
+        System.out.println();
         System.out.println("FL");
         for (String word : lastAsFirst(strs)) {
-            System.out.println(word);
+            System.out.print(word + " ");
         }
     }
 }

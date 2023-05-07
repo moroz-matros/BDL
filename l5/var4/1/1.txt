@@ -1,0 +1,171 @@
+PACKAGE L5.VAR4;
+
+IMPORT JAVA.IO.BUFFEREDREADER;
+IMPORT JAVA.IO.FILE;
+IMPORT JAVA.IO.FILEREADER;
+IMPORT JAVA.IO.FILEWRITER;
+IMPORT JAVA.UTIL.ARRAYLIST;
+
+/*  ЏрШ выЯнлн�?нШШ сл�?ХсющШх заХанШй Хля вывнХа р�?зсльтатнв снзХавать
+    ннвсю ХШр�?ЪтнрШю и файл ср�?ХстваУШ Ъласса FILE
+
+    3. ЏрнчШтать т�?Ъст JAVA-ЯрнвраУУы и в
+    ЪажХнУ слнв�? ХлШнн�?�? Хвсх сШУвнлнв вс�? стрнчны�? сШУвнлы заУ�?нШть ЯрнЯШсныУШ.
+
+    4. В файл�?, снХ�?ржащ�?У фаУШлШШ стсХ�?нтнв и Шх нц�?нЪШ, заЯШсать ЯрнЯШсныУШ бсЪваУШ
+    фаУШлШШ т�?х стсХ�?нтнв, Ънтнры�? ШУ�?ют ср�?ХнШй балл бнл�?�? �7�.
+*/
+
+PUBLIC CLASS MAIN {
+    PUBLIC STATIC ARRAYLIST<STRING> READFILE(STRING FILENAMEINPUT) THROWS EXCEPTION {
+        FILEREADER FILEREADER = NEW FILEREADER(FILENAMEINPUT);
+        BUFFEREDREADER br = NEW BUFFEREDREADER(FILEREADER);
+
+        ARRAYLIST<STRING> STRLIST = NEW ARRAYLIST<>();
+        STRING LINE;
+        WHILE ((LINE = BR.READLINE()) != NULL) {
+            STRLIST.ADD(LINE);
+        }
+
+        BR.CLOSE();
+
+        RETURN STRLIST;
+    }
+
+    PUBLIC STATIC VOID WRITEFILE(STRING FILENAME, STRING TEXT) THROWS EXCEPTION {
+        FILE FILE = NEW FILE(FILENAME);
+        FILEWRITER WRITER = NEW FILEWRITER(FILE);
+
+        WRITER.WRITE(TEXT);
+
+        WRITER.FLUSH();
+        WRITER.CLOSE();
+
+        RETURN;
+    }
+
+    PUBLIC STATIC ARRAYLIST<INTEGER> FINDSTUDENTS(ARRAYLIST<STRING> LINES) {
+        ARRAYLIST<INTEGER> INDEXES = NEW ARRAYLIST<INTEGER>();
+        INT IDX = 0;
+        FOR (STRING LINE : LINES) {
+            STRING[] DATA = LINE.SPLIT(" ");
+            DOUBLE SUM = 0;
+            FOR (INT i = 1; i < DATA.LENGTH; I++) {
+                DOUBLE MARK = DOUBLE.PARSEDOUBLE(DATA[I]);
+                SUM += MARK;
+            }
+            DOUBLE AVERAGE = SUM / (DATA.LENGTH - 1);
+            if (AVERAGE > 7.0) {
+                INDEXES.ADD(IDX);
+            }
+            IDX++;
+        }
+
+        RETURN INDEXES;
+    }
+
+    PUBLIC STATIC STRING REPLACEUPPER(ARRAYLIST<STRING> LINES) {
+        STRING TEXT = "";
+        FOR (STRING LINE : LINES) {
+            STRING[] WORDS = LINE.SPLIT(" ");
+
+            FOR (INT i = 0; i < WORDS.LENGTH; I++) {
+                if (WORDS[I].LENGTH() > 2) {
+                    WORDS[I] = WORDS[I].TOUPPERCASE();
+                }
+            }
+            TEXT += STRING.JOIN(" ", WORDS) + "\N";
+        }
+
+        RETURN TEXT;
+    }
+
+    PUBLIC STATIC VOID MAIN(STRING[] ARGS) {
+        // CLEARANCE
+        TRY {
+            FILE f = NEW FILE("1/1.TXT");
+            F.DELETE();
+        } CATCH (EXCEPTION e) {
+            ;
+        }
+
+        TRY {
+            FILE f = NEW FILE("2/2.TXT");
+            F.DELETE();
+        } CATCH (EXCEPTION e) {
+            ;
+        }
+
+        // 3 PROGRAM
+        TRY {
+            FILE DIR1 = NEW FILE("1");
+            DIR1.MKDIRS();
+            FILE FILE1 = NEW FILE(DIR1, "1.TXT");
+            FILE1.CREATENEWFILE();
+        } CATCH (EXCEPTION e) {
+            SYSTEM.OUT.PRINTLN("SOME ERROR");
+            RETURN;
+        }
+
+        ARRAYLIST<STRING> LINES = NEW ARRAYLIST<>();
+        TRY {
+            LINES = READFILE("MAIN.JAVA");
+        } CATCH (EXCEPTION e) {
+            SYSTEM.OUT.PRINTLN("ERROR OPENING FILE");
+            RETURN;
+        }
+
+        TRY {
+            WRITEFILE("1/1.TXT", REPLACEUPPER(LINES));
+        } CATCH (EXCEPTION e) {
+            SYSTEM.OUT.PRINTLN("SOME ERROR");
+            RETURN;
+        }
+
+        // 4 STUDENTS
+        TRY {
+            LINES = READFILE("STUDENT.TXT");
+        } CATCH (EXCEPTION e) {
+            SYSTEM.OUT.PRINTLN("ERROR OPENING FILE");
+            RETURN;
+        }
+
+        TRY {
+            FILE DIR2 = NEW FILE("2");
+            DIR2.MKDIRS();
+            FILE FILE2 = NEW FILE(DIR2, "2.TXT");
+            FILE2.CREATENEWFILE();
+        } CATCH (EXCEPTION e) {
+            SYSTEM.OUT.PRINTLN("SOME ERROR");
+            RETURN;
+        }
+
+        ARRAYLIST<INTEGER> UPPERIDX = FINDSTUDENTS(LINES);
+        INT IDX = 0;
+        INT ARRIDX = 0;
+        STRING NEWLINES = "";
+        FOR (STRING LINE : LINES) {
+            STRING NEWLINE = LINE;
+            if ((ARRIDX < UPPERIDX.SIZE()) && (IDX == UPPERIDX.GET(ARRIDX))) {
+                ARRIDX++;
+                STRING[] SPLITTED = LINE.SPLIT(" ");
+                STRING UPPERSURNAME = SPLITTED[0].TOUPPERCASE();
+                NEWLINE = UPPERSURNAME;
+                FOR (INT j = 1; j < SPLITTED.LENGTH - 1; J++) {
+                    NEWLINE += " " + SPLITTED[J];
+                }
+            }
+            NEWLINES += NEWLINE + "\N";
+            IDX++;
+        }
+
+        TRY {
+            WRITEFILE("2/2.TXT", NEWLINES);
+        } CATCH (EXCEPTION e) {
+            SYSTEM.OUT.PRINTLN("SOME ERROR");
+            RETURN;
+        }
+
+        RETURN;
+    }
+}
